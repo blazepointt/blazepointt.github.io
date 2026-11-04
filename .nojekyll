@@ -1,0 +1,10 @@
+[
+  {
+    "relation": ["delegate_permission/common.handle_all_urls"],
+    "target": {
+      "namespace": "android_app",
+      "package_name": "io.github.blazepointt.quanta",
+      "sha256_cert_fingerprints": ["12:27:1D:C7:6B:B6:6F:EA:48:70:75:3E:7C:FA:39:73:64:BE:C7:CB:0A:F0:99:C4:A8:22:76:F7:F0:AA:B2:77"]
+    }
+  }
+]
