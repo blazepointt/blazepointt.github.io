@@ -1,15 +1,102 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" data-theme="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Quanta AI</title>
-    <link rel="canonical" href="https://blazepointt.github.io/quanta/">
-    <meta http-equiv="refresh" content="0; url=/quanta/">
-    <script>location.replace('/quanta/' + location.search + location.hash);</script>
-    <style>html,body{height:100%;margin:0}body{display:flex;align-items:center;justify-content:center;background:#000;color:#fff;font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}a{color:#fff}</style>
+    <script>
+    (function () {
+        // Ссылки с параметрами (?s=…, #c=…) сразу открывают чат
+        if (location.search || location.hash) { location.replace('/quanta/' + location.search + location.hash); return; }
+        try {
+            var p = JSON.parse(localStorage.getItem('quanta_prefs') || 'null') || {};
+            if (p.theme === 'light' || ((!p.theme || p.theme === 'system') && window.matchMedia && matchMedia('(prefers-color-scheme: light)').matches)) {
+                document.documentElement.setAttribute('data-theme', 'light');
+            }
+        } catch (e) {}
+    })();
+    </script>
+    <title>Quanta AI от Blazepoint — бесплатный ИИ-чат на ПК и телефоне</title>
+    <meta name="description" content="Quanta AI от Blazepoint (blazepointt) — бесплатный ИИ-чат: ответы нейросети, помощь с кодом, картинки, презентации и голосовой разговор.">
+    <meta name="author" content="Blazepoint">
+    <meta name="robots" content="index, follow, max-image-preview:large">
+    <link rel="canonical" href="https://blazepointt.github.io/">
+    <link rel="icon" href="/favicon.ico" sizes="any">
+    <link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png">
+    <link rel="apple-touch-icon" href="/quanta/assets/apple-touch-icon.png">
+    <meta name="theme-color" content="#000000">
+    <meta property="og:site_name" content="Quanta AI">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="ru_RU">
+    <meta property="og:url" content="https://blazepointt.github.io/">
+    <meta property="og:title" content="Quanta AI — бесплатный ИИ-чат от Blazepoint">
+    <meta property="og:description" content="Ответы нейросети, помощь с кодом, картинки, презентации и голосовой разговор. Бесплатно, на ПК и телефоне.">
+    <meta property="og:image" content="https://blazepointt.github.io/quanta/assets/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta name="twitter:card" content="summary_large_image">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://blazepointt.github.io/#website",
+          "name": "Quanta AI",
+          "alternateName": ["Quanta", "Кванта", "Quanta AI Blazepoint", "Quanta AI blazepointt"],
+          "url": "https://blazepointt.github.io/",
+          "inLanguage": "ru",
+          "publisher": { "@id": "https://blazepointt.github.io/#org" }
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://blazepointt.github.io/#org",
+          "name": "Blazepoint",
+          "alternateName": "blazepointt",
+          "url": "https://blazepointt.github.io/",
+          "logo": "https://blazepointt.github.io/quanta/assets/icon-512.png",
+          "sameAs": ["https://github.com/blazepointt"]
+        }
+      ]
+    }
+    </script>
+    <style>
+        :root { --bg: #000; --fg: #fff; --muted: #a1a1aa; --line: #27272a; --card: #0f0f10; --btn-bg: #fff; --btn-fg: #000; color-scheme: dark; }
+        [data-theme="light"] { --bg: #fff; --fg: #09090b; --muted: #52525b; --line: #e4e4e7; --card: #f8f8f9; --btn-bg: #09090b; --btn-fg: #fff; color-scheme: light; }
+        * { box-sizing: border-box; }
+        html, body { margin: 0; min-height: 100%; }
+        body { min-height: 100vh; display: flex; flex-direction: column; background: var(--bg); color: var(--fg);
+               font: 16px/1.55 Inter, -apple-system, "Segoe UI", Roboto, "Noto Sans", Arial, sans-serif; }
+        main { flex: 1; width: 100%; max-width: 620px; margin: 0 auto; padding: 56px 24px 32px; text-align: center; display: flex; flex-direction: column; align-items: center; justify-content: center; }
+        .logo { width: 180px; height: auto; margin-bottom: 18px; }
+        [data-theme="light"] .logo { filter: invert(1); }
+        h1 { font-size: clamp(28px, 7vw, 40px); line-height: 1.15; margin: 0 0 10px; letter-spacing: -0.5px; }
+        .lead { color: var(--muted); font-size: 17px; margin: 0 0 28px; }
+        .actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 32px; }
+        .btn { display: inline-block; padding: 12px 22px; border-radius: 12px; text-decoration: none; font-weight: 600; border: 1px solid var(--line); color: var(--fg); background: var(--card); }
+        .btn-primary { background: var(--btn-bg); color: var(--btn-fg); border-color: var(--btn-bg); }
+        .btn:focus-visible { outline: 2px solid var(--fg); outline-offset: 3px; }
+        .features { list-style: none; padding: 16px 20px; margin: 0; width: 100%; border: 1px solid var(--line); border-radius: 16px; background: var(--card); text-align: left; }
+        .features li { padding: 6px 0 6px 26px; position: relative; }
+        .features li::before { content: "✓"; position: absolute; left: 2px; color: var(--muted); }
+        footer { text-align: center; color: var(--muted); font-size: 14px; padding: 20px 24px 28px; }
+        footer a { color: inherit; }
+    </style>
 </head>
 <body>
-    <a href="/quanta/">Открыть Quanta AI</a>
+    <main>
+        <img class="logo" src="/quanta/assets/logo-full-328.webp" srcset="/quanta/assets/logo-full-328.webp 328w, /quanta/assets/logo-full-492.webp 492w, /quanta/assets/logo-full-656.webp 656w" sizes="180px" width="180" height="147" alt="Quanta AI">
+        <h1>Quanta AI</h1>
+        <p class="lead">Бесплатный ИИ-чат от Blazepoint: ответы нейросети, помощь с кодом, картинки, презентации и голосовой разговор.</p>
+        <div class="actions">
+            <a class="btn btn-primary" href="/quanta/">Открыть Quanta AI</a>
+            <a class="btn" href="/quanta/?app=1">Приложение для Android</a>
+        </div>
+        <ul class="features">
+            <li>Работает сразу — без регистрации и ключей</li>
+            <li>Поиск в интернете, картинки, презентации, файлы и голосовой разговор</li>
+            <li>Чаты синхронизируются через аккаунт Google на всех устройствах</li>
+        </ul>
+    </main>
+    <footer>© 2026 Quanta AI · Blazepoint (<a href="https://github.com/blazepointt" rel="noopener">@blazepointt</a>) · <a href="/quanta/privacy.html">Конфиденциальность</a></footer>
 </body>
 </html>
